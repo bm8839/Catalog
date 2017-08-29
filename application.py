@@ -1,5 +1,10 @@
-from flask import Flask, render_template, request, redirect, \
-                  jsonify, url_for, flash
+from flask import (Flask,
+                   render_template,
+                   request,
+                   redirect,
+                   jsonify,
+                   url_for,
+                   flash)
 from sqlalchemy import create_engine, asc
 from sqlalchemy.orm import sessionmaker
 from catalogdb_setup import Base, User, Category, Item

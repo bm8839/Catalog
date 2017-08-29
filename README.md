@@ -9,6 +9,8 @@
   * Install [Sqlalchemy](pythoncentral.io/how-to-install-sqlalchemy/)
   * Install [Flask](http://flask.pocoo.org/docs/0.12/installation/)
   * Install [Oauth2client](https://github.com/google/oauth2client)
+  * Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
+  * Install [Vagrant](https://www.vagrantup.com/downloads.html)
   * Install [Git Bash](https://openhatch.org/missions/windows-setup/install-git-bash)
   * Open Git Bash and enter the following command
   ```
