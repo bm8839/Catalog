@@ -1,0 +1,38 @@
+<!-- This form displays the Category to be edited. Also
+provides a Cancel link if the user changes their mind. If they push the
+edit button, it returns to the editCategory handler. This page also displays
+a flash message if the user tries to edit the Category to a Category that
+already exists. -->
+
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<h2>Edit Category</h2>
+
+<div class = 'flash'>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+      {% endwith %}
+</div>
+
+<form method = 'post'>
+    <label>Category Name</label>
+    <br>
+    <input type="text" name="name" value="{{category.name}}">
+    <br>
+    <br>
+    <input type="Submit" value="EDIT">
+</form>
+<br>
+<a href="{{url_for('showCategories')}}">Cancel</a>
+
+
+{% endblock %}

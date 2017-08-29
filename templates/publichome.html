@@ -1,0 +1,52 @@
+<!-- This is the main page that the user sees once they access the
+the application and are not logged in. It displays all the Category names on
+the left side of the page and the last 10 items entered into the database on
+the right side of the page. Since the page is for logged-out users it does
+not display links to add/edit/delete Categories or add items. It is used in
+conjunction with the showCategories handler. -->
+
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+    <div class = 'flash'>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+
+          <ul>
+          {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+          {% endfor %}
+          </ul>
+
+        {% endif %}
+      {% endwith %}
+
+    </div>
+
+
+
+    <div class="row padding-top padding-bottom">
+        <div class="col-md-3 padding-none">
+          <h2>Categories</h2>
+          <br>
+          {% for category in categories %}
+            <a href = "{{url_for('showItems', category_name = category.name)}}">
+              <h4>{{category.name}}</h4>
+            </a>
+          {% endfor %}
+        </div>
+        <div style="border-left:2px solid #000;height:100%" class="col-md-9">
+          <h2>Latest Items</h2>
+          <br>
+          {% for item in items %}
+            <a href = "{{url_for('showDescription',
+                                 category_name = item.category_name,
+                                 item_name = item.name)}}">
+            <h5>{{item.name}} <i>({{item.category_name}})</i></h5></a>
+
+          {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

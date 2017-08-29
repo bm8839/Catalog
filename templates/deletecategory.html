@@ -1,0 +1,21 @@
+<!-- This form displays the Category to confirm user wishes to delete. Also
+provides a Cancel link if the user changes their mind. If they push the
+delete button, it returns to the deleteCategory handler.  -->
+
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<h2>Delete Category</h2>
+
+<form method=post>
+    <div>Are you sure you want to delete {{category.name}} ?</div>
+    <br>
+    <br>
+    <input type="Submit" value="DELETE">
+</form>
+<br>
+<a href="{{url_for('showCategories')}}">Cancel</a>
+
+
+{% endblock %}

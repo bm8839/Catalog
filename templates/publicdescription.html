@@ -1,0 +1,15 @@
+<!-- Displays item name and description to a logged out user. Provides no
+links to edit or delete an item name or description. Used in conjunction with
+the showDescription handler. -->
+
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<h2>{{item.name}}</h2>
+<br>
+{{item.description}}
+
+
+
+{% endblock %}

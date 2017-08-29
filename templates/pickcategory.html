@@ -1,0 +1,24 @@
+<!-- Displays a form where the user can select a Category name to either edit
+or delete. It then sends the Category name selected and the value of the
+button pushed indicating the desire to either edit or delete back to the
+pickCategory handler.  -->
+
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<h1>Select Category to edit or delete</h1>
+
+<form method = 'post'>
+    <select name="category">
+      {% for category in categories %}
+        <option value="{{category.name}}">{{category.name}}</option>
+      {% endfor %}
+    </select>
+    <br><br>
+    <button type="submit" name="button" value="edit">EDIT</button>
+    <button type="submit" name="button" value="delete">DELETE</button>
+
+</form>
+
+{% endblock %}

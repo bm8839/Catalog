@@ -1,0 +1,31 @@
+<!-- Displays all the Category names on the left side of the page and based
+on which Category name is clicked it shows all the items for that Category on
+the right side of the page. Used in conjunction with the showItems handler.-->
+
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+
+<div class="row">
+  <div class="col-md-3">
+    <h2>Categories</h2>
+      {% for category in categories %}
+        <a href = "{{url_for('showItems', category_name = category.name)}}">
+          <h3>{{category.name}}</h3>
+        </a>
+      {% endfor %}
+  </div>
+  <div style="border-left:2px solid #000;height:100%" class="col-md-9">
+    <h2>{{category.name}} Items ({{itemscount}} items)</h2>
+      {% for item in items %}
+        <a href = "{{url_for('showDescription',
+                             category_name = item.category_name,
+                             item_name = item.name)}}">
+          <h3>{{item.name}}</h3>
+        </a>
+      {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+<!-- This form allows the user to create a new Item. User gives name,
+description, and selects the Category it belongs to. Submit button returns
+to the newItem handler. This page also displays a flash message if the user
+tries to create an Item that already exists. -->
+
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<h1>Add Item</h1>
+
+<div class = 'flash'>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+
+            <ul>
+            {% for message in messages %}
+                <li> <strong> {{ message }} </strong> </li>
+            {% endfor %}
+            </ul>
+
+        {% endif %}
+    {% endwith %}
+
+</div>
+
+<form method=post>
+    <label>Item Name</label>
+    <br>
+    <input type="text" name="name">
+    <br>
+    <br>
+    <label>Description</label>
+    <br>
+    <textarea name="description" rows="3" maxlength="250"></textarea>
+    <br>
+    <br>
+    <label>Category</label>
+    <br>
+    <select name="category">
+      {% for category in categories %}
+        <option value="{{category.name}}">{{category.name}}</option>
+      {% endfor %}
+    </select>
+    <br><br>
+    <input type="Submit">
+</form>
+
+
+{% endblock %}
