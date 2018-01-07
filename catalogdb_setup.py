@@ -31,7 +31,7 @@ class Category(Base):
     __tablename__ = 'category'
 
     id = Column(Integer, primary_key=True)
-    name = Column(String(250), nullable=False)
+    name = Column(String(250), unique=True, nullable=False)
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
     item = relationship('Item', cascade='all, delete-orphan')
@@ -69,8 +69,8 @@ class Item(Base):
             }
 
 
-# Chose catalog.db as the name of the database that these tables create
-engine = create_engine('sqlite:///catalog.db')
+# Chose catalog as the name of the database that these tables create
+engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
 
 
 Base.metadata.create_all(engine)
