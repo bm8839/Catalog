@@ -10,13 +10,9 @@ home page and it provides a link to login or logout-->
     </div>
     <div class="col-md-6 text-right">
             {%if 'username' not in session %}
-                <button class="btn btn-primary">
-                  <a href="{{url_for('showLogin')}}">Login</a>
-                </button>
+                  <a href="{{url_for('showLogin')}}" class="btn btn-primary">Login</a>
             {% else %}
-                <button class="btn btn-primary">
-                  <a href="{{url_for('disconnect')}}">Logout</a>
-                </button>
+                  <a href="{{url_for('disconnect')}}" class="btn btn-primary">Logout</a>
             {% endif %}
 
     </div>
